@@ -1,0 +1,40 @@
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  thymeleaf:
+    enabled: true
+    cache: false
+    encoding: utf-8
+    prefix: classpath:/templates/
+    suffix: .html
+    ## HTML, HTML5, LEGACYHTML5
+    mode: HTML
+  servlet:
+      content-type: text/html
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
+    generate-ddl: false
+    show-sql: false
+    open-in-view: true
+    hibernate:
+      ## DDL mode. This is actually a shortcut for the "hibernate.hbm2ddl.auto" property. Defaults to "create-drop" when using an embedded database and no schema manager was detected. Otherwise, defaults to "none".
+      ddl-auto: validate
+      naming:
+        implicit-strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
+        #physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+server:
+  port: 8082
+
+db:
+  userdb:
+    datasource:
+      host: 127.0.0.1
+      port: 3306
+      database: mytest
+      username: root
+      password: root
+      url: jdbc:mysql://${db.userdb.datasource.host}:${db.userdb.datasource.port}/${db.userdb.datasource.database}?user=${db.userdb.datasource.username}&password=${db.userdb.datasource.password}
+

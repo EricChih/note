@@ -1,0 +1,13 @@
+
+P
+java:S1141%"5Extract this nested try block into a separate method.(ÀÕ–¿üÿÿÿÿ
+N	java:S106"9Replace this use of System.out or System.err by a logger.(»£Ñ©
+b
+java:S2677"LUse or store the value returned from "readLine" instead of throwing it away.(™¸¡
+W
+java:S1075<"ARefactor your code to get this URI from a customizable parameter.(‚ƒ“
+M	java:S106]"9Replace this use of System.out or System.err by a logger.(Œ·Â4
+k
+java:S1128"PRemove this unused import 'org.springframework.scheduling.annotation.Scheduled'.(‚¡®Üûÿÿÿÿ
+Q
+java:S1128	";Remove this unused import 'javax.annotation.PostConstruct'.(›ÅÁ

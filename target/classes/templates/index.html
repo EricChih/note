@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>簡單筆記應用</title>
+    <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f7f7f7;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h2 {
+      color: #333;
+    }
+
+    .note-app {
+      background-color: #fff;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    #noteInput {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ddd;
+      box-sizing: border-box;
+      font-size: 14px;
+    }
+
+    button {
+      background-color: #5cb85c;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    button:hover {
+      background-color: #4cae4c;
+    }
+
+    #noteList {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    #noteList li {
+      background-color: #e7e7e7;
+      padding: 10px;
+      margin-bottom: 5px;
+    }
+
+          .note-item {
+      background-color: #e7e7e7;
+      border-left: 5px solid #5cb85c;
+      margin-bottom: 5px;
+      padding: 10px;
+      position: relative;
+    }
+
+    .note-tag {
+      display: inline-block;
+      background-color: #ddd;
+      border-radius: 3px;
+      font-size: 12px;
+      padding: 3px 8px;
+      margin-right: 5px;
+    }
+
+    </style>
+</head>
+<body>
+
+<div class="note-app">
+    <h2>我的筆記</h2>
+
+    <div>
+        <textarea id="noteInput" placeholder="輸入新筆記..."></textarea>
+        <button onclick="addNote()">新增筆記</button>
+    </div>
+
+    <ul id="noteList">
+        <!-- 筆記列表將在這裡顯示 -->
+    </ul>
+
+    <div>
+        <input type="text" id="tagInput" placeholder="標籤 (用逗號分隔)" style="margin-bottom: 10px;">
+        <!-- 留意這裡新增了標籤輸入框 -->
+    </div>
+</div>
+
+<script>
+  let notes = [];
+
+  function addNote() {
+    let noteInput = document.getElementById('noteInput');
+    let note = noteInput.value.trim();
+    if (note) {
+      notes.push(note);
+      noteInput.value = '';
+      renderNotes();
+    }
+  }
+
+  function renderNotes() {
+    let noteList = document.getElementById('noteList');
+    noteList.innerHTML = '';
+    notes.forEach(function(note, index) {
+      let li = document.createElement('li');
+      li.textContent = note;
+      noteList.appendChild(li);
+    });
+  }
+
+</script>
+
+<script>
+
+  function addNote() {
+    let noteInput = document.getElementById('noteInput');
+    let tagInput = document.getElementById('tagInput');
+    let note = noteInput.value.trim();
+    let tags = tagInput.value.split(',').map(tag => tag.trim()).filter(tag => tag);
+
+    if (note) {
+      notes.push({ text: note, tags: tags });
+      noteInput.value = '';
+      tagInput.value = '';
+      renderNotes();
+    }
+  }
+
+  function renderNotes() {
+    let noteList = document.getElementById('noteList');
+    noteList.innerHTML = '';
+    notes.forEach(function(noteObj) {
+      let li = document.createElement('li');
+      li.className = 'note-item';
+      li.textContent = noteObj.text;
+
+      noteObj.tags.forEach(function(tag) {
+        let span = document.createElement('span');
+        span.className = 'note-tag';
+        span.textContent = tag;
+        li.appendChild(span);
+      });
+
+      noteList.appendChild(li);
+    });
+  }
+
+</script>
+
+</body>
+</html>
