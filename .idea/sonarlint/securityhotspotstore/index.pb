@@ -13,3 +13,11 @@ k
 ;src/main/java/org/example/configuration/Dao/ProjectDao.java,b\3\b360e1015f6c034b51c4f045cc75ebefc4908577
 Y
 )src/main/java/org/example/CsvServies.java,3\2\32c2f505bca1bc2a9b4cf574284b9510dbaad65b
+j
+:src/main/java/org/example/SpeechRecognitionController.java,4\7\478a884876f3d323f276a6c669fdb40ade9752d0
+\
+,src/main/java/org/example/MyApplication.java,a\0\a00e596e3819e73fe4cf975e9fc87afdfa12bb75
+`
+0src/main/java/org/example/RedisMysqlService.java,5\7\5737f993be84b73b97c2136987635d1b5a45c96d
+W
+'src/main/java/org/example/SqlClass.java,b\0\b0d14f00ba046a7ce7aaa517abc16f27b530c790
